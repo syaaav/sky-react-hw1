@@ -1,16 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import { createRoot } from "react-dom/client";
 import './index.css'
 // import App from "./App";
+import App from './Homework2'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
 
 // задача 1
 // root.render(<div>текст</div>);
@@ -82,19 +82,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 // root.render(<App />);
 
 // задача 11
-class App extends React.Component {
-  getNum1() {
-    return 1
-  }
+// class App extends React.Component {
+//   getNum1() {
+//     return 1
+//   }
 
-  getNum2() {
-    return 2
-  }
+//   getNum2() {
+//     return 2
+//   }
 
-  render() {
-    return <div>текст {this.getNum1() + this.getNum2()}</div>
-  }
-}
-root.render(<App />)
+//   render() {
+//     return <div>текст {this.getNum1() + this.getNum2()}</div>
+//   }
+// }
+// root.render(<App />)
 
 reportWebVitals()

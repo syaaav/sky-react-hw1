@@ -6,17 +6,19 @@ import './index.css'
 // import MinMax from './hw3/2'
 // import ReacTimer from './hw4/1'
 // import Clock from './hw4/2'
-import PomodoroTracker from './hw4/3'
+// import PomodoroTracker from './hw4/3'
+// import App from './hw5/2'
+import MinMax from './hw5/3.2'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    {/* <MinMax min={16} max={20} /> */}
+    <MinMax min={1} max={30} />
     {/* <ReacTimer /> */}
     {/* <Clock />  */}
-    <PomodoroTracker />
+    {/* <PomodoroTracker /> */}
   </React.StrictMode>
 )
 

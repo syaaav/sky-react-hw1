@@ -6,9 +6,8 @@ export default class PomodoroTracker extends React.Component {
     this.state = {
       minutes: 0,
       seconds: 0,
-      isCounting: false,
+      text: 'Timer is going!',
     }
-    this.componentDidMount = this.componentDidMount.bind(this)
     this.handleWorkTime = this.handleWorkTime.bind(this)
     this.handleShortBreak = this.handleShortBreak.bind(this)
     this.handleLongBreak = this.handleLongBreak.bind(this)
@@ -25,40 +24,36 @@ export default class PomodoroTracker extends React.Component {
 
   handleWorkTime() {
     this.setState(() => ({ minutes: 30, seconds: 0 }))
-    this.setState(() => ({ isCounting: true }))
+    this.setState(() => ({ text: `Let's go!` }))
   }
 
   handleShortBreak() {
-    this.setState(() => ({ minutes: 1, seconds: 0 }))
-    this.setState(() => ({ isCounting: true }))
+    this.setState(() => ({ minutes: 7, seconds: 0 }))
+    this.setState(() => ({ text: `Let's go!` }))
   }
 
   handleLongBreak() {
     this.setState(() => ({ minutes: 15, seconds: 0 }))
-    this.setState(() => ({ isCounting: true }))
+    this.setState(() => ({ text: `Let's go!` }))
   }
 
   handleStartTimer() {
-    if (this.state.isCounting) {
-      const interval = setInterval(() => {
-        clearInterval(interval)
+    const interval = setInterval(() => {
+      clearInterval(interval)
 
-        if (this.state.seconds === 0) {
-          if (this.state.minutes !== 0) {
-            this.setState((prevState) => ({ minutes: prevState.minutes - 1 }))
-            this.setState(() => ({ seconds: 59 }))
-          }
-        } else {
-          this.setState((prevState) => ({ seconds: prevState.seconds - 1 }))
+      if (this.state.seconds === 0) {
+        if (this.state.minutes !== 0) {
+          this.setState((prevState) => ({ minutes: prevState.minutes - 1 }))
+          this.setState(() => ({ seconds: 59 }))
         }
+      } else {
+        this.setState((prevState) => ({ seconds: prevState.seconds - 1 }))
+      }
 
-        if (this.state.minutes === 0 && this.state.seconds === 0) {
-          this.setState(() => ({ isCounting: false }))
-        }
-      }, 1000)
-    } else {
-      clearInterval(this.interval)
-    }
+      if (this.state.minutes === 0 && this.state.seconds === 0) {
+        clearInterval(this.interval)
+      }
+    }, 1000)
   }
 
   render() {
@@ -69,13 +64,7 @@ export default class PomodoroTracker extends React.Component {
 
     return (
       <div className="pomodoro">
-        <div className="message">
-          {this.state.isCounting ? (
-            <div>Timer is going!</div>
-          ) : (
-            <div>{`Let's go!`}</div>
-          )}
-        </div>
+        <div className="message">{this.state.text}</div>
         <div className="timer">
           {timerMinutes}:{timerSeconds}
         </div>

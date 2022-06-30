@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-boolean-cast */
 import React from 'react'
 
 const interval = 100
@@ -7,9 +8,7 @@ export default class ReacTimer extends React.Component {
     super(props)
     this.state = {
       count: 0,
-      isCounting: false,
     }
-    this.componentDidMount = this.componentDidMount.bind(this)
     this.handleStart = this.handleStart.bind(this)
     this.handleStop = this.handleStop.bind(this)
     this.handleReset = this.handleReset.bind(this)
@@ -17,9 +16,7 @@ export default class ReacTimer extends React.Component {
 
   componentDidMount() {
     this.timerId = setInterval(() => this.handleStart(), 1000 / interval)
-    this.setState((prevState) => ({
-      isCounting: !prevState.isCounting,
-    }))
+    this.state.timerIdBoolean = !Boolean(this.timerId)
   }
 
   componentDidUpdate() {}
@@ -35,7 +32,7 @@ export default class ReacTimer extends React.Component {
   handleStop() {
     clearInterval(this.timerId)
     this.setState((prevState) => ({
-      isCounting: !prevState.isCounting,
+      timerIdBoolean: !prevState.timerIdBoolean,
     }))
   }
 
@@ -55,7 +52,7 @@ export default class ReacTimer extends React.Component {
           <span>{`${Math.round(this.state.count / interval)}`} . </span>
           <span>{`${this.state.count % interval}`}</span>
         </h3>
-        {this.state.isCounting ? (
+        {this.state.timerIdBoolean ? (
           <button type="button" onClick={this.componentDidMount}>
             Start
           </button>

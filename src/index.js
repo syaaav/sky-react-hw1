@@ -8,17 +8,21 @@ import './index.css'
 // import Clock from './hw4/2'
 // import PomodoroTracker from './hw4/3'
 // import App from './hw5/2'
-import MinMax from './hw5/3.2'
+// import MinMax from './hw5/3.2'
+import BookCart from './hw6/1'
+import LoginPass from './hw6/2'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <MinMax min={1} max={30} />
+    {/* <MinMax min={1} max={30} /> */}
     {/* <ReacTimer /> */}
     {/* <Clock />  */}
     {/* <PomodoroTracker /> */}
+    <BookCart />
+    <LoginPass />
   </React.StrictMode>
 )
 

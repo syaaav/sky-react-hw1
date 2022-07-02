@@ -6,13 +6,9 @@ export default function LoginPass() {
   const login = useInputRequired('text', '', true)
   const password = useInputRequired('password', '', true)
 
-  function handleSubmit() {
-    console.log('Submit')
-  }
-
   return (
     <div>
-      <form onSubmit={handleSubmit()}>
+      <form>
         <label>
           Login:
           <input {...login} />

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export default function MinMax({ min = 1, max, current, onChange }) {
   function applyCurrent(num) {
     const validNum = Math.max(min, Math.min(max, num))
@@ -23,4 +25,15 @@ export default function MinMax({ min = 1, max, current, onChange }) {
       </button>
     </div>
   )
+}
+
+MinMax.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number.isRequired,
+  current: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+}
+
+MinMax.defaultProps = {
+  min: 1,
 }

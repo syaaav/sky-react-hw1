@@ -9,8 +9,9 @@ import './index.css'
 // import PomodoroTracker from './hw4/3'
 // import App from './hw5/2'
 // import MinMax from './hw5/3.2'
-import BookCart from './hw6/1'
-import LoginPass from './hw6/2'
+// import BookCart from './hw6/1'
+// import LoginPass from './hw6/2'
+import NumberGenerator from './hw7/NumberGenerator'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -21,8 +22,9 @@ root.render(
     {/* <ReacTimer /> */}
     {/* <Clock />  */}
     {/* <PomodoroTracker /> */}
-    <BookCart />
-    <LoginPass />
+    {/* <BookCart /> */}
+    {/* <LoginPass /> */}
+    <NumberGenerator />
   </React.StrictMode>
 )
 

@@ -11,8 +11,8 @@ export default function ColorNumbers(item) {
     item.number === 5 ||
     item.number === 7 ||
     (item.number !== 1 &&
-      item.number % 3 &&
-      item.number % 5 &&
+      item.number % 3 !== 0 &&
+      item.number % 5 !== 0 &&
       item.number % 7 !== 0)
   ) {
     return <div className="red">{item.number}</div>

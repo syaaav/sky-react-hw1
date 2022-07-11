@@ -1,22 +1,6 @@
 import PropTypes from 'prop-types'
 import './NumberGenerator.css'
-import ColorNumbers from './ColorNumber'
-
-function CreateRow(rowLength) {
-  const first = rowLength.min
-  const last = rowLength.max
-
-  const numbers = []
-  for (let i = first; i <= last; i += 1) {
-    numbers.push(i)
-  }
-
-  return numbers.map((number) => (
-    <div>
-      <ColorNumbers number={number} />
-    </div>
-  ))
-}
+import CreateRow from './CreateRow'
 
 export default function NumberGenerator() {
   return (

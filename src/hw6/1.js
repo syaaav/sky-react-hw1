@@ -45,7 +45,9 @@ export default function BookCart() {
                 <MinMax
                   max={book.rest}
                   current={book.quantity}
-                  onChange={(quantity) => setQuatinty(book.id, quantity)}
+                  onChangeQuantity={(quantity) =>
+                    setQuatinty(book.id, quantity)
+                  }
                 />
               </td>
               <td>{book.price * book.quantity} </td>

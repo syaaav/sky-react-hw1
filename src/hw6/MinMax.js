@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
-export default function MinMax({ min = 1, max, current, onChange }) {
+export default function MinMax({ min = 1, max, current, onChangeQuantity }) {
   function applyCurrent(num) {
     const validNum = Math.max(min, Math.min(max, num))
-    onChange(validNum)
+    onChangeQuantity(validNum)
   }
 
   function parseCurrent(e) {
@@ -19,7 +19,19 @@ export default function MinMax({ min = 1, max, current, onChange }) {
       <button type="button" onClick={dec}>
         -
       </button>
-      <input type="text" value={current} onChange={parseCurrent} />
+      <input
+        type="text"
+        value={current}
+        onChange={parseCurrent}
+        onBlur={() => {
+          parseCurrent()
+        }}
+        onKeyPress={(event) => {
+          if (event.code === 'Enter') {
+            parseCurrent(event)
+          }
+        }}
+      />
       <button type="button" onClick={inc}>
         +
       </button>
@@ -31,7 +43,7 @@ MinMax.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number.isRequired,
   current: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChangeQuantity: PropTypes.func.isRequired,
 }
 
 MinMax.defaultProps = {

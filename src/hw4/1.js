@@ -7,7 +7,7 @@ export default class ReacTimer extends React.Component {
     super(props)
     this.state = {
       count: 0,
-      isCounting: false,
+      timerId: true,
     }
     this.componentDidMount = this.componentDidMount.bind(this)
     this.handleStart = this.handleStart.bind(this)
@@ -17,12 +17,8 @@ export default class ReacTimer extends React.Component {
 
   componentDidMount() {
     this.timerId = setInterval(() => this.handleStart(), 1000 / interval)
-    this.setState((prevState) => ({
-      isCounting: !prevState.isCounting,
-    }))
+    this.setState((prevState) => ({ timerId: !prevState.timerId }))
   }
-
-  componentDidUpdate() {}
 
   componentWillUnmount() {
     clearInterval(this.timerId)
@@ -34,9 +30,7 @@ export default class ReacTimer extends React.Component {
 
   handleStop() {
     clearInterval(this.timerId)
-    this.setState((prevState) => ({
-      isCounting: !prevState.isCounting,
-    }))
+    this.setState((prevState) => ({ timerId: !prevState.timerId }))
   }
 
   handleReset() {
@@ -55,7 +49,7 @@ export default class ReacTimer extends React.Component {
           <span>{`${Math.round(this.state.count / interval)}`} . </span>
           <span>{`${this.state.count % interval}`}</span>
         </h3>
-        {this.state.isCounting ? (
+        {!this.state.timerId ? (
           <button type="button" onClick={this.componentDidMount}>
             Start
           </button>

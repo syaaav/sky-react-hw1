@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+}
+.green {
+  width: 60px;
+  height: 60px;
+  background-color: #22bf73;
+  color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  border: 0.5px solid white;
+}
+.yellow {
+  width: 60px;
+  height: 60px;
+  background-color: #fdda3a;
+  color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  border: 0.5px solid white;
+}
+.red {
+  width: 60px;
+  height: 60px;
+  background-color: #fb5e52;
+  color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  border: 0.5px solid white;
+}

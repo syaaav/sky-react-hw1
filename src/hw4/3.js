@@ -8,10 +8,10 @@ export default class PomodoroTracker extends React.Component {
       seconds: 0,
       text: 'Timer is going!',
     }
-    this.handleWorkTime = this.handleWorkTime.bind(this)
-    this.handleShortBreak = this.handleShortBreak.bind(this)
-    this.handleLongBreak = this.handleLongBreak.bind(this)
-    this.handleStartTimer = this.handleStartTimer.bind(this)
+    // this.handleWorkTime = this.handleWorkTime.bind(this)
+    // this.handleShortBreak = this.handleShortBreak.bind(this)
+    // this.handleLongBreak = this.handleLongBreak.bind(this)
+    // this.handleStartTimer = this.handleStartTimer.bind(this)
   }
 
   componentDidMount() {
@@ -22,22 +22,22 @@ export default class PomodoroTracker extends React.Component {
     clearInterval(this.interval)
   }
 
-  handleWorkTime() {
+  handleWorkTime = () => {
     this.setState(() => ({ minutes: 30, seconds: 0 }))
     this.setState(() => ({ text: `Let's go!` }))
   }
 
-  handleShortBreak() {
+  handleShortBreak = () => {
     this.setState(() => ({ minutes: 7, seconds: 0 }))
     this.setState(() => ({ text: `Let's go!` }))
   }
 
-  handleLongBreak() {
+  handleLongBreak = () => {
     this.setState(() => ({ minutes: 15, seconds: 0 }))
     this.setState(() => ({ text: `Let's go!` }))
   }
 
-  handleStartTimer() {
+  handleStartTimer = () => {
     const interval = setInterval(() => {
       clearInterval(interval)
 

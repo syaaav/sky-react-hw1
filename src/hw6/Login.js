@@ -12,6 +12,7 @@ export default function useInputRequired(
   const [value, setValue] = useState(currentValue)
   const [placeholder, setError] = useState('')
   const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/
+  const minLengthPassword = 6
 
   return {
     type,
@@ -22,7 +23,10 @@ export default function useInputRequired(
       if (event.target.type === 'email' && !filter.test(event.target.value)) {
         setErrorMessage('Enter correct email')
       }
-      if (event.target.type === 'password' && event.target.value.length < 6) {
+      if (
+        event.target.type === 'password' &&
+        event.target.value.length < minLengthPassword
+      ) {
         setErrorMessage('Your password must be at least 6 characters')
       }
     },

@@ -1,0 +1,51 @@
+.content {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #e5e5e5;
+}
+.order {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+.order_card {
+  border: 1px solid #96b6b1;
+  padding: 20px;
+  width: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.order_card_title {
+  text-align: center;
+  margin: 20px;
+}
+.order_card_price {
+  padding: 0px 0px 20px 0px;
+}
+.order_card_quantity {
+  padding: 0px 0px 20px 0px;
+}
+.order_card_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_card_button {
+  width: 40px;
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.minus {
+  background-color: #bb3d50;
+}
+.plus {
+  background-color: #129763;
+}

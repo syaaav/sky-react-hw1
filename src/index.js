@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
@@ -6,12 +7,14 @@ import './index.css'
 // import MinMax from './hw3/2'
 // import ReacTimer from './hw4/1'
 // import Clock from './hw4/2'
-// import PomodoroTracker from './hw4/3'
+import PomodoroTracker from './hw4/3.js'
 // import App from './hw5/2'
 // import MinMax from './hw5/3.2'
 // import BookCart from './hw6/1'
 // import LoginPass from './hw6/2'
-import NumberGenerator from './hw7/NumberGenerator'
+// import NumberGenerator from './hw7/NumberGenerator'
+// import Order from './hw8/Order'
+// import Select from './hw9/Select'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -21,10 +24,12 @@ root.render(
     {/* <MinMax min={1} max={30} /> */}
     {/* <ReacTimer /> */}
     {/* <Clock />  */}
-    {/* <PomodoroTracker /> */}
+    <PomodoroTracker />
     {/* <BookCart /> */}
     {/* <LoginPass /> */}
-    <NumberGenerator />
+    {/* <NumberGenerator /> */}
+    {/* <Order /> */}
+    {/* <Select /> */}
   </React.StrictMode>
 )
 

@@ -8,6 +8,10 @@ export default class ReacTimer extends React.Component {
     super(props)
     this.state = {
       count: 0,
+<<<<<<< HEAD
+=======
+      timerId: true,
+>>>>>>> 4f71a610a4b2fe61cd8016e71662213c668cb499
     }
     this.handleStart = this.handleStart.bind(this)
     this.handleStop = this.handleStop.bind(this)
@@ -16,10 +20,12 @@ export default class ReacTimer extends React.Component {
 
   componentDidMount() {
     this.timerId = setInterval(() => this.handleStart(), 1000 / interval)
+<<<<<<< HEAD
     this.state.timerIdBoolean = !Boolean(this.timerId)
+=======
+    this.setState((prevState) => ({ timerId: !prevState.timerId }))
+>>>>>>> 4f71a610a4b2fe61cd8016e71662213c668cb499
   }
-
-  componentDidUpdate() {}
 
   componentWillUnmount() {
     clearInterval(this.timerId)
@@ -31,9 +37,13 @@ export default class ReacTimer extends React.Component {
 
   handleStop() {
     clearInterval(this.timerId)
+<<<<<<< HEAD
     this.setState((prevState) => ({
       timerIdBoolean: !prevState.timerIdBoolean,
     }))
+=======
+    this.setState((prevState) => ({ timerId: !prevState.timerId }))
+>>>>>>> 4f71a610a4b2fe61cd8016e71662213c668cb499
   }
 
   handleReset() {
@@ -52,7 +62,11 @@ export default class ReacTimer extends React.Component {
           <span>{`${Math.round(this.state.count / interval)}`} . </span>
           <span>{`${this.state.count % interval}`}</span>
         </h3>
+<<<<<<< HEAD
         {this.state.timerIdBoolean ? (
+=======
+        {!this.state.timerId ? (
+>>>>>>> 4f71a610a4b2fe61cd8016e71662213c668cb499
           <button type="button" onClick={this.componentDidMount}>
             Start
           </button>

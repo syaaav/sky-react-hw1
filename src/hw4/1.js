@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-boolean-cast */
 import React from 'react'
 
 const interval = 100
@@ -7,29 +8,31 @@ export default class ReacTimer extends React.Component {
     super(props)
     this.state = {
       count: 0,
-      timerId: true,
+      timerId: null,
     }
-    this.componentDidMount = this.componentDidMount.bind(this)
     this.handleStart = this.handleStart.bind(this)
     this.handleStop = this.handleStop.bind(this)
     this.handleReset = this.handleReset.bind(this)
   }
 
   componentDidMount() {
-    this.timerId = setInterval(() => this.handleStart(), 1000 / interval)
-    this.setState((prevState) => ({ timerId: !prevState.timerId }))
+    this.handleStart()
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerId)
+    this.handleStop()
   }
 
   handleStart() {
-    this.setState((prevState) => ({ count: prevState.count + 1 }))
+    this.state.timerId = setInterval(
+      () => this.setState((prevState) => ({ count: prevState.count + 1 })),
+      1000 / interval
+    )
+    this.setState((prevState) => ({ timerId: !prevState.timerId }))
   }
 
   handleStop() {
-    clearInterval(this.timerId)
+    clearInterval(this.state.timerId)
     this.setState((prevState) => ({ timerId: !prevState.timerId }))
   }
 
@@ -49,7 +52,7 @@ export default class ReacTimer extends React.Component {
           <span>{`${Math.round(this.state.count / interval)}`} . </span>
           <span>{`${this.state.count % interval}`}</span>
         </h3>
-        {!this.state.timerId ? (
+        {Boolean(this.state.timerId) ? (
           <button type="button" onClick={this.componentDidMount}>
             Start
           </button>

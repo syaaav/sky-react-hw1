@@ -26,19 +26,20 @@ export default class ReacTimer extends React.Component {
   }
 
   handleStart = () => {
-    const timerId = setInterval(
-      () => this.setState((prevState) => ({ count: prevState.count + 1 })),
-      1000 / interval
-    )
+    const timerId = setInterval(() => {
+      if (!this.state.timerId) {
+        this.setState(() => ({
+          timerId,
+        }))
+      }
 
-    this.setState(() => ({
-      timerId,
-    }))
+      this.setState((prevState) => ({ count: prevState.count + 1 }))
+    }, 1000 / interval)
   }
 
   handleStop = () => {
     clearInterval(this.state.timerId)
-    this.setState((prevState) => ({ timerId: null }))
+    this.setState(() => ({ timerId: null }))
   }
 
   handleReset() {
